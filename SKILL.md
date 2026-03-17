@@ -7,7 +7,6 @@ metadata:
   version: 1.0.0
   category: automation
   tags: [browser, web-scraping, automation, playwright, video-recording, inference-sh]
-allowed-tools: Bash(infsh *)
 ---
 
 # Agentic Browser
@@ -273,6 +272,31 @@ Browser state persists within a session. Always:
 1. Start with `--session new` on first call
 2. Use returned `session_id` for subsequent calls
 3. Close session when done
+
+## Example Output
+
+Opening a page returns interactive elements with `@e` refs:
+
+```
+$ infsh app run agent-browser --function open --session new --input '{"url": "https://example.com/login"}'
+
+Session: ses_abc123
+Elements:
+  @e1 [input type="email"] placeholder="Email address"
+  @e2 [input type="password"] placeholder="Password"
+  @e3 [button] "Sign In"
+  @e4 [a] "Forgot password?" href="/reset"
+  @e5 [a] "Create account" href="/register"
+```
+
+After interaction, a snapshot refreshes the refs for the new page state.
+
+## Error Handling
+
+- **`infsh` not installed**: Run `npx skills add inference-sh/skills@agent-tools` for setup instructions, or visit inference.sh
+- **Session expired**: Sessions timeout after inactivity. Start a new one with `--session new`
+- **Element not found**: The `@e` ref may be stale after navigation. Always re-snapshot after clicking links or submitting forms
+- **Site blocks automation**: Some sites detect headless browsers. Try enabling `show_cursor: true` or using a proxy
 
 ## Related Skills
 
