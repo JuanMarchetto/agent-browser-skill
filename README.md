@@ -9,6 +9,11 @@ Browser automation for AI agents via [inference.sh](https://inference.sh). Navig
 /plugin install agent-browser@agent-skills
 ```
 
+Or via [skills.sh](https://skills.sh):
+```bash
+npx skills add JuanMarchetto/agent-browser-skill
+```
+
 Or manually:
 ```bash
 git clone https://github.com/JuanMarchetto/agent-browser-skill.git
