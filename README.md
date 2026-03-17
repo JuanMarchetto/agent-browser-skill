@@ -5,8 +5,8 @@ Browser automation for AI agents via [inference.sh](https://inference.sh). Navig
 ## Install
 
 ```
-/plugin marketplace add JuanMarchetto/agent-skills-marketplace
-/plugin install agent-browser@agent-skills-marketplace
+/plugin marketplace add JuanMarchetto/agent-skills
+/plugin install agent-browser@agent-skills
 ```
 
 Or manually:
